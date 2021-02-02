@@ -29,11 +29,12 @@ spec:
             - mountPath: /var/lib/mysql
               name: db-claim
   volumeClaimTemplates:
-    - metadata:
-        name: db-claim
-      spec:
-        accessModes: [ "ReadWriteOnce" ]
-        storageClassName: "default"
-        resources:
-          requests:
-            storage: 10Gi
+  - metadata:
+      name: db-claim
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "default"
+      resources:
+        requests:
+          storage: 10Gi
+          
