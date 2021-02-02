@@ -15,5 +15,5 @@ spec:
           value: q1w2e3r4
         - name: "MYSQL_DATABASE"
           value: empresa
-        - name: "MYSQL_ROOT_PASSWORD"
+        - name: "MYSQL_PASSWORD"
           value: q1w2e3r4

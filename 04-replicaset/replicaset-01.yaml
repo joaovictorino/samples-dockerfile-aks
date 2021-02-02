@@ -10,10 +10,10 @@ spec:
         app: replicaset-01
     spec:
       containers:
-      - name: nginx-container
-        image: nginx:stable
-        ports:
-          - containerPort: 80
+        - name: nginx-container
+          image: nginx:stable
+          ports:
+            - containerPort: 80
   replicas: 3
   selector:
     matchLabels:
