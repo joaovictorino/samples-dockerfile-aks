@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: db-mysql
+  labels:
+    app: db-mysql
+spec:
+  containers:
+    - name: db-mysql-container
+      image: mysql:8.0
+      ports:
+        - containerPort: 3306
+      env:
+        - name: "MYSQL_ROOT_PASSWORD"
+          value: q1w2e3r4
+        - name: "MYSQL_DATABASE"
+          value: empresa
+        - name: "MYSQL_ROOT_PASSWORD"
+          value: q1w2e3r4
