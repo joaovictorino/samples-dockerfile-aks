@@ -6,20 +6,18 @@ metadata:
       name: myingress
   annotations:
     kubernetes.io/ingress.class: addon-http-application-routing
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: teste-ingress.9b18cca48fd24db4b8c1.eastus.aksapp.io
+    - host: teste.9b18cca48fd24db4b8c1.eastus.aksapp.io
       http:
         paths:
-          - path: "/"
+          - path: "/nginx"
             pathType: Prefix
             backend:
               serviceName: svc-pod-1
               servicePort: 80
-    - host: teste-apache.9b18cca48fd24db4b8c1.eastus.aksapp.io
-      http:
-        paths:
-          - path: "/"
+          - path: "/apache"
             pathType: Prefix
             backend:
               serviceName: svc-pod-2
