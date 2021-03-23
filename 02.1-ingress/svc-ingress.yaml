@@ -9,7 +9,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: teste.9b18cca48fd24db4b8c1.eastus.aksapp.io
+    - host: teste.DNS
       http:
         paths:
           - path: "/nginx"
