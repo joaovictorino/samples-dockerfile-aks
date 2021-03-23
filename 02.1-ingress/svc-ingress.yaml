@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: myingress
+  labels:
+      name: myingress
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+  rules:
+    - host: teste-ingress.9b18cca48fd24db4b8c1.eastus.aksapp.io
+      http:
+        paths:
+          - path: "/"
+            pathType: Prefix
+            backend:
+              serviceName: svc-pod-1
+              servicePort: 80
+    - host: teste-apache.9b18cca48fd24db4b8c1.eastus.aksapp.io
+      http:
+        paths:
+          - path: "/"
+            pathType: Prefix
+            backend:
+              serviceName: svc-pod-2
+              servicePort: 80
