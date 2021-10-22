@@ -1,7 +1,7 @@
 FROM alpine
 
 LABEL "Company" "João Ltda"
-MAINTAINER João
+LABEL maintainer="João"
 
 RUN apk update
 
