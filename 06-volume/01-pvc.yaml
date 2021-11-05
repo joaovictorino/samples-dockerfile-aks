@@ -4,8 +4,8 @@ metadata:
   name: azure-managed-disk
 spec:
   accessModes:
-    - ReadWriteOnce
-  storageClassName: default
+    - ReadWriteMany
+  storageClassName: azurefile
   resources:
     requests:
       storage: 5Gi
