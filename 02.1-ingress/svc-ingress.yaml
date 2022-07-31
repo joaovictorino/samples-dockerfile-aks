@@ -9,17 +9,16 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: teste.aks-aula-infra.eastus.cloudapp.azure.com
-      http:
+    - http:
         paths:
-          - path: "/nginx"
+          - path: /nginx
             pathType: Prefix
             backend:
               service:
                 name: svc-pod-1
                 port: 
                   number: 80
-          - path: "/apache"
+          - path: /apache
             pathType: Prefix
             backend:
               service:
