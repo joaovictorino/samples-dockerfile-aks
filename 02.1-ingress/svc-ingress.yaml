@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: myingress
@@ -9,16 +9,20 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: teste.DNS
+    - host: teste.aks-aula-infra.eastus.cloudapp.azure.com
       http:
         paths:
           - path: "/nginx"
             pathType: Prefix
             backend:
-              serviceName: svc-pod-1
-              servicePort: 80
+              service:
+                name: svc-pod-1
+                port: 
+                  number: 80
           - path: "/apache"
             pathType: Prefix
             backend:
-              serviceName: svc-pod-2
-              servicePort: 80
+              service:
+                name: svc-pod-2
+                port: 
+                  number: 80
