@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-canary
+spec:
+  template:
+    metadata:
+      name: pod-2
+      labels:
+        app: deployment-canary
+        track: canary
+    spec:
+      containers:
+        - name: container-pod-2
+          image: httpd:latest
+          ports:
+            - containerPort: 80
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deployment-canary
