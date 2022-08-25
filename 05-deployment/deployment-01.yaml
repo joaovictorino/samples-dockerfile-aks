@@ -17,7 +17,7 @@ spec:
               cpu: "500m"
           ports:
             - containerPort: 80
-  replicas: 6
+  replicas: 3
   selector:
     matchLabels:
       app: deployment-01
