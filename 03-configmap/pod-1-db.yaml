@@ -8,6 +8,10 @@ spec:
   containers:
     - name: db-mysql-container
       image: mysql:8.0
+      resources:
+        limits:
+          cpu: "2"
+          memory: "400Mi"
       ports:
         - containerPort: 3306
       env:
