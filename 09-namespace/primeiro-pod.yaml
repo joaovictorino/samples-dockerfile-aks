@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-declarativo
+  namespace: exemplo-ns
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx:stable
+      resources:
+        limits:
+          cpu: "1"
+          memory: "100Mi"
