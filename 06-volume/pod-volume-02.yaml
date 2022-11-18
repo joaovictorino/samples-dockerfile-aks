@@ -8,6 +8,10 @@ spec:
   containers:
     - name: pod-volume-02
       image: nginx:latest
+      resources:
+        limits:
+          cpu: "1"
+          memory: "100Mi"
       ports:
         - containerPort: 80
       volumeMounts:
@@ -16,4 +20,4 @@ spec:
   volumes:
     - name: volume
       persistentVolumeClaim:
-        claimName: azure-managed-disk
+        claimName: pvc-sample
