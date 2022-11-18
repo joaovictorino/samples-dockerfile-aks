@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysqldb
+spec:
+  selector:
+    matchLabels:
+      app: mysqldb
+  serviceName: svc-mysqldb
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mysqldb
+    spec:
+      containers:
+        - name: mysqldb
+          image: mysql:8.0
+          ports:
+            - containerPort: 3306
+          env:
+            - name: "MYSQL_ROOT_PASSWORD"
+              value: q1w2e3r4
+            - name: "MYSQL_DATABASE"
+              value: empresa
+            - name: "MYSQL_PASSWORD"
+              value: q1w2e3r4
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: db-claim
+  volumeClaimTemplates:
+  - metadata:
+      name: db-claim
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: hostpath
+      resources:
+        requests:
+          storage: 10Gi
+          
